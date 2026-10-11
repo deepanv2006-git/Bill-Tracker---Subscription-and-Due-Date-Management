@@ -1,0 +1,407 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2937;
+  line-height: 1.5;
+  padding: 24px 16px;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #4b5563;
+  font-size: 15px;
+}
+
+/* Summary Cards (Flexbox) */
+.summary-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-title {
+  font-size: 13px;
+  color: #4b5563;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.summary-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.summary-value.overdue-text {
+  color: #dc2626;
+}
+
+/* Main Layout (Flexbox) */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .form-section {
+    flex: 0 0 340px;
+  }
+
+  .list-section {
+    flex: 1;
+  }
+}
+
+/* Base Card Style */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.error-message {
+  display: block;
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+}
+
+/* Bills List Section */
+.list-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+@media (min-width: 520px) {
+  .list-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.filter-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-box label {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.filter-box select {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.filter-box select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* Bills List */
+.bills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Bill Item Card */
+.bill-card {
+  border: 1px solid #e5e7eb;
+  border-left-width: 5px;
+  border-radius: 6px;
+  padding: 14px 16px;
+  background-color: #ffffff;
+}
+
+/* Status border colors */
+.bill-card.status-green {
+  border-left-color: #16a34a;
+}
+
+.bill-card.status-yellow {
+  border-left-color: #ca8a04;
+}
+
+.bill-card.status-red {
+  border-left-color: #dc2626;
+}
+
+.bill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+
+.bill-title-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.bill-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.category-tag {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.repeat-tag {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+.bill-amount {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.bill-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 560px) {
+  .bill-body {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.bill-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.due-date-text {
+  color: #4b5563;
+}
+
+/* Status Badges */
+.status-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.badge-green {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.badge-yellow {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.badge-red {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Bill Action Buttons */
+.bill-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-small {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #374151;
+  font-family: inherit;
+}
+
+.btn-small:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-paid {
+  border-color: #16a34a;
+  color: #16a34a;
+}
+
+.btn-paid:hover {
+  background-color: #f0fdf4;
+}
+
+.btn-delete {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.btn-delete:hover {
+  background-color: #fef2f2;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .summary-grid {
+    flex-direction: column;
+  }
+
+  body {
+    padding: 16px 10px;
+  }
+}

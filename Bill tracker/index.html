@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bill Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <h1>Bill Tracker</h1>
+      <p class="subtitle">Keep track of your regular bills and due dates</p>
+    </header>
+
+    <!-- Top Summary Cards -->
+    <section class="summary-grid">
+      <div class="summary-card">
+        <span class="summary-title">Total Monthly Spend</span>
+        <span class="summary-value" id="totalMonthly">₹0.00</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-title">Due in Next 7 Days</span>
+        <span class="summary-value" id="dueSoonCount">0</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-title">Overdue Bills</span>
+        <span class="summary-value overdue-text" id="overdueCount">0</span>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Form Section -->
+      <section class="card form-section">
+        <h2 id="formTitle">Add Bill</h2>
+        <form id="billForm" novalidate>
+          <div class="form-group">
+            <label for="billName">Bill Name</label>
+            <input type="text" id="billName" placeholder="e.g. Electricity, Internet">
+            <span class="error-message" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="billAmount">Amount (₹)</label>
+            <input type="number" id="billAmount" placeholder="e.g. 750" min="1" step="any">
+            <span class="error-message" id="amountError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="billCategory">Category</label>
+            <select id="billCategory">
+              <option value="Entertainment">Entertainment</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Education">Education</option>
+              <option value="Food">Food</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="billDueDate">Due Date</label>
+            <input type="date" id="billDueDate">
+            <span class="error-message" id="dateError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="billRepeat">Repeat</label>
+            <select id="billRepeat">
+              <option value="Monthly">Monthly</option>
+              <option value="Yearly">Yearly</option>
+              <option value="One-time">One-time</option>
+            </select>
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit" id="submitBtn" class="btn btn-primary">Add Bill</button>
+            <button type="button" id="cancelBtn" class="btn btn-secondary" style="display: none;">Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Bills List Section -->
+      <section class="card list-section">
+        <div class="list-header">
+          <h2>All Bills</h2>
+          <div class="filter-box">
+            <label for="categoryFilter">Filter by category:</label>
+            <select id="categoryFilter">
+              <option value="All">All Categories</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Education">Education</option>
+              <option value="Food">Food</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="billsList" class="bills-list">
+          <!-- Bills will be inserted here by JavaScript -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
